@@ -1,16 +1,25 @@
 {
   "version": 1,
-  "author": "SmartCrop Team",
+  "author": "awoldau",
   "editor": "wokwi",
   "parts": [
-    {
-      "type": "wokwi-arduino-uno",
-      "id": "uno",
-      "top": 0,
-      "left": 0,
-      "attrs": {}
-    }
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 160, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 0, "left": 240, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "soil1", "top": 0, "left": 420, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 0, "left": 600, "attrs": {} }
   ],
-  "connections": [],
+  "connections": [
+    ["dht1:VCC", "uno:5V", "red", []],
+    ["dht1:GND", "uno:GND.1", "black", []],
+    ["dht1:SDA", "uno:2", "green", []],
+
+    ["soil1:VCC", "uno:5V", "red", []],
+    ["soil1:GND", "uno:GND.2", "black", []],
+    ["soil1:SIG", "uno:A0", "yellow", []],
+
+    ["ldr1:VCC", "uno:5V", "red", []],
+    ["ldr1:GND", "uno:GND.3", "black", []],
+    ["ldr1:AO", "uno:A1", "orange", []]
+  ],
   "dependencies": {}
 }
