@@ -6,7 +6,12 @@
     { "type": "wokwi-arduino-uno", "id": "uno", "top": 160, "left": 0, "attrs": {} },
     { "type": "wokwi-dht22", "id": "dht1", "top": 0, "left": 240, "attrs": {} },
     { "type": "wokwi-potentiometer", "id": "soil1", "top": 0, "left": 420, "attrs": {} },
-    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 0, "left": 600, "attrs": {} }
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 0, "left": 600, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 320, "left": 240, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-led", "id": "ledG", "top": 320, "left": 500, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledR", "top": 320, "left": 560, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 360, "left": 500, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 360, "left": 560, "attrs": { "value": "220" } }
   ],
   "connections": [
     ["dht1:VCC", "uno:5V", "red", []],
@@ -19,7 +24,20 @@
 
     ["ldr1:VCC", "uno:5V", "red", []],
     ["ldr1:GND", "uno:GND.3", "black", []],
-    ["ldr1:AO", "uno:A1", "orange", []]
+    ["ldr1:AO", "uno:A1", "orange", []],
+
+    ["lcd1:VCC", "uno:5V", "red", []],
+    ["lcd1:GND", "uno:GND.4", "black", []],
+    ["lcd1:SDA", "uno:A4", "blue", []],
+    ["lcd1:SCL", "uno:A5", "purple", []],
+
+    ["ledG:A", "r1:1", "green", []],
+    ["r1:2", "uno:7", "green", []],
+    ["ledG:C", "uno:GND.5", "black", []],
+
+    ["ledR:A", "r2:1", "red", []],
+    ["r2:2", "uno:8", "red", []],
+    ["ledR:C", "uno:GND.6", "black", []]
   ],
   "dependencies": {}
 }
