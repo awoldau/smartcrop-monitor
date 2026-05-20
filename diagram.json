@@ -11,7 +11,8 @@
     { "type": "wokwi-led", "id": "ledG", "top": 320, "left": 500, "attrs": { "color": "green" } },
     { "type": "wokwi-led", "id": "ledR", "top": 320, "left": 560, "attrs": { "color": "red" } },
     { "type": "wokwi-resistor", "id": "r1", "top": 360, "left": 500, "attrs": { "value": "220" } },
-    { "type": "wokwi-resistor", "id": "r2", "top": 360, "left": 560, "attrs": { "value": "220" } }
+    { "type": "wokwi-resistor", "id": "r2", "top": 360, "left": 560, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 320, "left": 640, "attrs": {} }
   ],
   "connections": [
     ["dht1:VCC", "uno:5V", "red", []],
@@ -37,7 +38,9 @@
 
     ["ledR:A", "r2:1", "red", []],
     ["r2:2", "uno:8", "red", []],
-    ["ledR:C", "uno:GND.6", "black", []]
+    ["ledR:C", "uno:GND.6", "black", []],
+    ["bz1:1", "uno:9", "purple", []],
+    ["bz1:2", "uno:GND.7", "black", []]
   ],
   "dependencies": {}
 }
